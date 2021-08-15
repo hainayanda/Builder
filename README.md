@@ -2,6 +2,7 @@
 
 Builder is Swift builder pattern library that utilize dynamicCallable and dynamicMemberLookup as its core.
 
+[![codebeat badge](https://codebeat.co/badges/2aadfe57-5ebc-4c9d-a76a-ac59ebb94b8d)](https://codebeat.co/projects/github-com-hainayanda-builder-main)
 ![build](https://github.com/hainayanda/Builder/workflows/build/badge.svg)
 ![test](https://github.com/hainayanda/Builder/workflows/test/badge.svg)
 [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen)](https://swift.org/package-manager/)
