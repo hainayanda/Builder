@@ -1,0 +1,27 @@
+PODS:
+  - Builder (1.0.0)
+  - Nimble (9.2.0)
+  - Quick (4.0.0)
+
+DEPENDENCIES:
+  - Builder (from `../`)
+  - Nimble (~> 9.2.0)
+  - Quick (~> 4.0.0)
+
+SPEC REPOS:
+  trunk:
+    - Nimble
+    - Quick
+
+EXTERNAL SOURCES:
+  Builder:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Builder: 9ea1b87198904e244803eb298f10c29660632677
+  Nimble: 4f4a345c80b503b3ea13606a4f98405974ee4d0b
+  Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
+
+PODFILE CHECKSUM: c348adf91edd7fbe2595f72e4774a1b03d299167
+
+COCOAPODS: 1.10.1
