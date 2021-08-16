@@ -118,14 +118,12 @@ its just to ensure you can call builder global function by only passing its `Typ
 
 ```swift
 ```swift
-let view: UIView = builder(UIView.self)
-    .backgroundColor(.white)
-    .layer.cornerRadius(16)
+let view: UIView = builder(MyObjectImplementBuildable.self)
+    .string("some string")
+    .int(10)
+    .double(1.2)
     .build()
 ```
-
-`NSObject` by default is implemented this protocol, so `UIView`, `UIViewController` and many things can be build like this.
-You can always implemented it to your object.
 
 ## Contribute
 
