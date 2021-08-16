@@ -10,5 +10,3 @@ import Foundation
 public protocol Buildable {
     init()
 }
-
-extension NSObject: Buildable { }
