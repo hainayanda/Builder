@@ -95,12 +95,16 @@ let myObject: MyObject = builder(MyObject())
     .build()
 ```
 
-Its even can assign property of property as deep as you need:
+Its even can assign property of property as deep as you need, as long the property is mutable:
 
 ```swift
-let view: UIView = builder(UIView())
-    .backgroundColor(.white)
-    .layer.cornerRadius(16)
+let view: UIView = builder(SomObject())
+    .string("some string")
+    .int(10)
+    .double(1.2)
+    .subObject.string("some string")
+    .subObject.int(10)
+    .subObject.double(1.2)
     .build()
 ```
 
@@ -118,7 +122,7 @@ its just to ensure you can call builder global function by only passing its `Typ
 
 ```swift
 ```swift
-let view: UIView = builder(MyObjectImplementBuildable.self)
+let view: MyObjectImplementBuildable = builder(MyObjectImplementBuildable.self)
     .string("some string")
     .int(10)
     .double(1.2)
