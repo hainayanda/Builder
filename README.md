@@ -121,7 +121,6 @@ public protocol Buildable {
 its just to ensure you can call builder global function by only passing its `Type`:
 
 ```swift
-```swift
 let view: MyObjectImplementBuildable = builder(MyObjectImplementBuildable.self)
     .string("some string")
     .int(10)
