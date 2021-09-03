@@ -261,7 +261,7 @@
 		BAE263041362D074978BB3B577DF0A05 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2DD27CB90704924D6D50162205BD97 /* ExpectationMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpectationMessage.swift; path = Sources/Nimble/ExpectationMessage.swift; sourceTree = "<group>"; };
 		BB3B4C5632F90FE9F502A0263B2199DD /* Pods-Builder_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Builder_Tests.modulemap"; sourceTree = "<group>"; };
-		BB3D57F926E26EBE007EEF3E /* BuilderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderConfig.swift; sourceTree = "<group>"; };
+		BB3D57F926E26EBE007EEF3E /* BuilderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BuilderConfig.swift; path = Builder/Classes/BuilderConfig.swift; sourceTree = "<group>"; };
 		BBCBA95A26C9850F0015B6CF /* PropertyAssigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PropertyAssigner.swift; path = Builder/Classes/PropertyAssigner.swift; sourceTree = "<group>"; };
 		BBCBA95E26C9855B0015B6CF /* Buildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Buildable.swift; path = Builder/Classes/Buildable.swift; sourceTree = "<group>"; };
 		BEE0135D5FDA5A4415EADADB336B9246 /* FailureMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FailureMessage.swift; path = Sources/Nimble/FailureMessage.swift; sourceTree = "<group>"; };
@@ -388,12 +388,12 @@
 		22C9CAE28EEB11D26C43EF30F0C72AC8 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
-				0E882AAB18F66339B621F6213EFED470 /* Builder.swift */,
 				BBCBA95E26C9855B0015B6CF /* Buildable.swift */,
-				BBCBA95A26C9850F0015B6CF /* PropertyAssigner.swift */,
-				12EE8BDB17333F1EBA451BDBDAC8E151 /* Pod */,
-				52E1A79C7599E18F20FEEA66F60DA6F1 /* Support Files */,
+				0E882AAB18F66339B621F6213EFED470 /* Builder.swift */,
 				BB3D57F926E26EBE007EEF3E /* BuilderConfig.swift */,
+				12EE8BDB17333F1EBA451BDBDAC8E151 /* Pod */,
+				BBCBA95A26C9850F0015B6CF /* PropertyAssigner.swift */,
+				52E1A79C7599E18F20FEEA66F60DA6F1 /* Support Files */,
 			);
 			name = Builder;
 			path = ../..;
