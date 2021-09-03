@@ -31,7 +31,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 Builder is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Builder', '~> 1.0.1'
+pod 'Builder', '~> 1.0.2'
 ```
 
 ### Swift Package Manager from XCode
@@ -47,7 +47,7 @@ Add as your target dependency in **Package.swift**
 
 ```swift
 dependencies: [
-  .package(url: "https://github.com/hainayanda/Builder.git", .upToNextMajor(from: "1.0.1"))
+  .package(url: "https://github.com/hainayanda/Builder.git", .upToNextMajor(from: "1.0.2"))
 ]
 ```
 
@@ -126,6 +126,29 @@ let view: MyObjectImplementBuildable = builder(MyObjectImplementBuildable.self)
     .int(10)
     .double(1.2)
     .build()
+```
+
+## Error Handling
+
+Sometimes you can mistakenly  try to assigning property that immutable. By default you can always see the debugPrint output like this:
+
+```
+Failed to assign property keypath of MyType with property type MyPropertyType because its not writable
+```
+
+But it can be forgotton and became a bug in the future. So you can always force it to throw fatalError if something like this is happes by assigning `errorHandling` on `BuilderConfig`:
+
+```swift
+BuilderConfig.errorHandling = .fatalErrorOnAssigningLet
+```
+
+it will create a fatal error when immutable property is assigned, so you can always fix it before it became a problem in the future. 
+You can always handling it manually by assigning closure:
+
+```swift
+BuilderConfig.errorHandling = .manual { message in
+    debugPrint("FIX THIS: \(message)")
+}
 ```
 
 ## Contribute
