@@ -15,17 +15,15 @@ public func builder<Object>(_ object: Object) -> Builder<Object> {
     Builder(object)
 }
 
-@dynamicMemberLookup
-public final class Builder<Object> {
-    var object: Object
+public protocol Maker: AnyObject {
+    associatedtype Object
     
-    init(_ object: Object) {
-        self.object = object
-    }
-    
-    public subscript<Property>(
-        dynamicMember keyPath: KeyPath<Object, Property>) -> PropertyAssigner<Object, Property, Builder<Object>> {
-        return PropertyAssigner(keypathOwner: object, keyPath: keyPath) { value, assignType  in
+    var underlyingObject: Object { get set }
+}
+
+public extension Maker {
+    func propertyAssigner<Property>(for keyPath: KeyPath<Object, Property>) -> PropertyAssigner<Object, Property, Self> {
+        PropertyAssigner(keypathOwner: underlyingObject, keyPath: keyPath) { value, assignType  in
             switch assignType {
             case .directAssign:
                 break;
@@ -41,12 +39,26 @@ public final class Builder<Object> {
                 errorHappens("Failed to assign property keypath of \(String(describing: Object.self)) with property type \(String(describing: Property.self)) because its not writable")
                 return self
             }
-            self.object[keyPath: writable] = value
+            self.underlyingObject[keyPath: writable] = value
             return self
         }
     }
+}
+
+@dynamicMemberLookup
+public final class Builder<Object>: Maker {
+    public var underlyingObject: Object
     
-    public func build() -> Object { object }
+    init(_ object: Object) {
+        self.underlyingObject = object
+    }
+    
+    public subscript<Property>(
+        dynamicMember keyPath: KeyPath<Object, Property>) -> PropertyAssigner<Object, Property, Builder<Object>> {
+        propertyAssigner(for: keyPath)
+    }
+    
+    public func build() -> Object { underlyingObject }
 }
 
 public extension Builder where Object: Buildable {
