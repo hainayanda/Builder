@@ -24,9 +24,24 @@ public final class Builder<Object> {
     }
     
     public subscript<Property>(
-        dynamicMember keyPath: WritableKeyPath<Object, Property>) -> PropertyAssigner<Object, Property, Builder<Object>> {
-        return PropertyAssigner(keypathOwner: object, keyPath: keyPath) { value in
-            self.object[keyPath: keyPath] = value
+        dynamicMember keyPath: KeyPath<Object, Property>) -> PropertyAssigner<Object, Property, Builder<Object>> {
+        return PropertyAssigner(keypathOwner: object, keyPath: keyPath) { value, assignType  in
+            switch assignType {
+            case .directAssign:
+                break;
+            case .toParent:
+                if Property.self is AnyClass {
+                    return self
+                }
+                break;
+            case .error:
+                return self
+            }
+            guard let writable = keyPath as? WritableKeyPath<Object, Property> else {
+                errorHappens("Failed to assign property keypath of \(String(describing: Object.self)) with property type \(String(describing: Property.self)) because its not writable")
+                return self
+            }
+            self.object[keyPath: writable] = value
             return self
         }
     }
