@@ -14,7 +14,7 @@ public enum BuilderConfigErrorHandler {
 }
 
 public class BuilderConfig {
-    static let shared: BuilderConfig = .init()
+    public static let shared: BuilderConfig = .init()
     
     public var errorHandling: BuilderConfigErrorHandler = .debugPrintOnAssigningLet
 }
