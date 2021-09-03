@@ -8,18 +8,18 @@
 import Foundation
 
 public func builder<B: Buildable>(_ type: B.Type) -> Builder<B> {
-    Builder(object: .init())
+    Builder(type)
 }
 
 public func builder<Object>(_ object: Object) -> Builder<Object> {
-    Builder(object: object)
+    Builder(object)
 }
 
 @dynamicMemberLookup
 public final class Builder<Object> {
     var object: Object
     
-    init(object: Object) {
+    init(_ object: Object) {
         self.object = object
     }
     
@@ -32,4 +32,10 @@ public final class Builder<Object> {
     }
     
     public func build() -> Object { object }
+}
+
+public extension Builder where Object: Buildable {
+    convenience init(_ type: Object.Type) {
+        self.init(.init())
+    }
 }
