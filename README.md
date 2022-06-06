@@ -76,9 +76,9 @@ If you have a class like this:
 
 ```swift
 class MyObject {
-    var string: String
-    var int: Int
-    var double: Double
+    var string: String?
+    var int: Int?
+    var double: Double?
     
     ...
     ...
@@ -98,7 +98,7 @@ let myObject: MyObject = builder(MyObject())
 Its even can assign property of property as deep as you need, as long the property is mutable:
 
 ```swift
-let view: UIView = builder(SomObject())
+let myObject: MyObject = builder(MyObject())
     .string("some string")
     .int(10)
     .double(1.2)
