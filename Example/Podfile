@@ -2,6 +2,6 @@ use_frameworks!
 target 'Builder_Tests' do
   pod 'Builder', :path => '../'
   
-  pod 'Quick', '~> 4.0.0'
-    pod 'Nimble', '~> 9.2.0'
+  pod 'Quick', '~> 5.0.1'
+    pod 'Nimble', '~> 10.0.0'
 end
