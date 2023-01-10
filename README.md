@@ -114,10 +114,25 @@ let myObject: MyObject = builder(MyObject())
 
 ## Buildable
 
-There's a protocol named Buildable which declared like this:
+There's a protocol named Buildable that allowed your object to have a `bld` computed property that will return a Builder object for you to use:
 
 ```swift
-public protocol Buildable {
+let myObject: MyObject = MyBuildable().bld
+    .string("some string")
+    .int(10)
+    .double(1.2)
+    .subObject.string("some string")
+    .subObject.int(10)
+    .subObject.double(1.2)
+    .build()
+```
+
+## Initializable
+
+There's a protocol named Initializable which declared like this:
+
+```swift
+public protocol Initializable {
     init()
 }
 ```
@@ -125,12 +140,14 @@ public protocol Buildable {
 its just to ensure you can call builder global function by only passing its `Type`:
 
 ```swift
-let view: MyObjectImplementBuildable = builder(MyObjectImplementBuildable.self)
+let view: MyObjectImplementInitializable = builder(MyObjectImplementInitializable.self)
     .string("some string")
     .int(10)
     .double(1.2)
     .build()
 ```
+
+Initializable is implementing Buildable by default
 
 ## Error Handling
 
