@@ -14,7 +14,7 @@ import Builder
 class BuilderSpec: QuickSpec {
     override func spec() {
         describe("builder spec") {
-            it("should build Buildable class by type") {
+            it("should build Initializable class by type") {
                 let object = builder(DummyObject.self)
                     .int(10)
                     .subObject.string("inside class")
@@ -26,7 +26,7 @@ class BuilderSpec: QuickSpec {
                 expect(object.subStruct.string).to(equal("inside struct"))
                 expect(object.subObjectLet.string).to(equal("inside class"))
             }
-            it("should build Buildable struct by type") {
+            it("should build Initializable struct by type") {
                 let object = builder(DummyStruct.self)
                     .int(10)
                     .subObject.string("inside class")
@@ -38,7 +38,7 @@ class BuilderSpec: QuickSpec {
                 expect(object.subStruct.string).to(equal("inside struct"))
                 expect(object.subObjectLet.string).to(equal("inside class"))
             }
-            it("should build Buildable class by object passed") {
+            it("should build Initializable class by object passed") {
                 let object = builder(DummyObject())
                     .int(10)
                     .subObject.string("inside class")
@@ -50,7 +50,7 @@ class BuilderSpec: QuickSpec {
                 expect(object.subStruct.string).to(equal("inside struct"))
                 expect(object.subObjectLet.string).to(equal("inside class"))
             }
-            it("should build Buildable struct by object passed") {
+            it("should build Initializable struct by object passed") {
                 let object = builder(DummyStruct())
                     .int(10)
                     .subObject.string("inside class")
@@ -86,7 +86,7 @@ class BuilderSpec: QuickSpec {
     }
 }
 
-fileprivate class DummyObject: Buildable {
+fileprivate class DummyObject: Initializable {
     var int: Int = 0
     let intLet: Int = 0
     var subObject: SubObject = .init()
@@ -107,7 +107,7 @@ fileprivate class DummyObject: Buildable {
     }
 }
 
-fileprivate struct DummyStruct: Buildable {
+fileprivate struct DummyStruct: Initializable {
     var int: Int = 0
     let intLet: Int = 0
     var subObject: SubObject = .init()
