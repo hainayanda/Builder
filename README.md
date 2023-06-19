@@ -22,11 +22,9 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 - Swift 5.1 or higher (or 5.3 when using Swift Package Manager)
 - iOS 10 or higher
-
-### Only Swift Package Manager
-
 - macOS 10.10 or higher
 - tvOS 10 or higher
+- watchOS 4 or higher
 
 ## Installation
 
@@ -35,14 +33,14 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 Builder is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Builder', '~> 1.1.0'
+pod 'Builder', '~> 1.1.1'
 ```
 
 ### Swift Package Manager from XCode
 
 - Add it using XCode menu **File > Swift Package > Add Package Dependency**
 - Add **https://github.com/hainayanda/Builder.git** as Swift Package URL
-- Set rules at **version**, with **Up to Next Major** option and put **1.1.0** as its version
+- Set rules at **version**, with **Up to Next Major** option and put **1.1.1** as its version
 - Click next and wait
 
 ### Swift Package Manager from Package.swift
@@ -51,7 +49,7 @@ Add as your target dependency in **Package.swift**
 
 ```swift
 dependencies: [
-  .package(url: "https://github.com/hainayanda/Builder.git", .upToNextMajor(from: "1.1.0"))
+  .package(url: "https://github.com/hainayanda/Builder.git", .upToNextMajor(from: "1.1.1"))
 ]
 ```
 
